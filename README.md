@@ -1,13 +1,16 @@
+
 # Audit Node Modules With YARA Rules
+## (New Rules, Feedbacks, PRs are highly appreciated)
+#
 ## Table of content
-+ [Why](#why)
++ [Purpose](#purpose)
 + [Software Requirements](#software-requirements)
 + [How to use](#how-to-use)
 + [CI/CD integration](#cicd-integration)
 + [Adding YARA new rules](#adding-yara-new-rules)
-## Why
-* The purpose of this tool is to run a given set of `YARA` rules against the given `node_module` folder.
-* With this approach, We can define `YARA` rules to identify suspicious scripts which are injected into node packages.
+## Purpose
+* The purpose of this tool is to run a given set of [`YARA`](https://yara.readthedocs.io/en/stable/) rules against the given `node_module` folder.
+* With this approach, We can define [`YARA`](https://yara.readthedocs.io/en/stable/) rules to identify suspicious scripts which are injected into node packages.
 * Mainly inspired by these articles.
 
   * [Malicious packages in npm. Here’s what to do](https://iamakulov.com/notes/npm-malicious-packages/)
@@ -68,21 +71,22 @@ exit $suspicious_file_count
 ```
 
 ## Adding YARA new rules
-When we need to add new `YARA` rules, they must be added to the `yara_rules` folder.
+When we need to add new `YARA` rules, they must be added to the `yara_rules` folder with extention `.yara`.
 ### Sample YARA rule
+#### Let's create a rule for [this](https://gist.github.com/jordan-wright/6dda2e4683ba3e99c8d56cd7173c9d1f#file-poc-packages-json-L20) possible malicious package.
+A possible rule is as below.
 ```txt
-rule babelcli
+rule evil
 {
     meta:
-        name = "babelcli@1.0.1"
+        name = "evil@0.0.1"
 
     strings:
-        $name = /"name":\s"babelcli",/
-        $version = /"version":\s"1.0.1"/
+        $scripts = /"scripts":/
+        $install = /"mkdir -p ~\/Desktop\/sploit && touch ~\/Desktop\/sploit\/haxx"/
 
     condition:
         all of them
 }
 ```
-#
-# NEW RULES, FEEDBACKS, PRs are highly appreciated.
+Save this rule in `yara_rules` folder as `evil.yara`, and good to go

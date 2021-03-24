@@ -42,11 +42,19 @@ run:
 ifeq ($(strip ${NODE_MODULE_FOLDER_TO_AUDIT}),)
 	$(call log_error, 'NODE_MODULE_FOLDER_TO_AUDIT is not set')
 else
+
+# Check given folder is accessible
+ifeq ("$(wildcard ${NODE_MODULE_FOLDER_TO_AUDIT})","")
+	$(call log_error, '${NODE_MODULE_FOLDER_TO_AUDIT} is not accessible')
+	exit 1
+endif
+
+	$(call is_folder_exists, $(NODE_MODULE_FOLDER_TO_AUDIT))
 	$(call make_workspace)
 
 	$(call log_operation, 'Copying to internal folder. From [$(NODE_MODULE_FOLDER_TO_AUDIT)/*] to [$(FOLDER_TO_AUDIT)]')
 
-	@ cp -rH ${NODE_MODULE_FOLDER_TO_AUDIT}/* ./$(FOLDER_TO_AUDIT)
+	@ cp -r ${NODE_MODULE_FOLDER_TO_AUDIT}/* ./$(FOLDER_TO_AUDIT)
 
 	$(call log_operation, 'Running audit operation')
 	$(call execute_docker, "cd $(WORK_DIR)/$(EXECUTOR_FOLDER) && yarn exeute-audit")
