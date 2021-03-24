@@ -11,7 +11,7 @@
     "lint-fix": "eslint --fix --ext ts .",
     "fmt": "prettier --write --parser typescript --config .prettierrc '**/*.ts'",
     "exeute-audit": "yarn && yarn build && node index.js && yarn clean",
-    "test": "yarn && jest --runInBand --config=jest.config.json && yarn clean"
+    "test": "yarn && jest --config=jest.config.json && yarn clean"
   },
   "dependencies": {
     "debug": "4.3.1"
