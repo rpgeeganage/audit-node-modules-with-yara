@@ -71,7 +71,10 @@ exit $suspicious_file_count
 ```
 
 ## Adding YARA new rules
-When we need to add new `YARA` rules, they must be added to the `yara_rules` folder with extention `.yara`.
+When we need to add new `YARA` rules, they must be added to the `yara_rules` folder with extension `.yara`.
+
+**(Existing rules are created based on [this](https://iamakulov.com/notes/npm-malicious-packages/) article. They might be outdated)**
+
 ### Sample YARA rule
 #### Let's create a rule for [this](https://gist.github.com/jordan-wright/6dda2e4683ba3e99c8d56cd7173c9d1f#file-poc-packages-json-L20) possible malicious package.
 A possible rule is as below.
