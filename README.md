@@ -44,17 +44,24 @@ The report is available in `artifacts/output.json`.
 ```json
 [
  {
-  "rule": "nodecaffe",
+  "rule": "evil_package_1",
   "string_information": [
    "0x6:$name: \"name\": \"nodecaffe\",",
    "0x1f:$version: \"version\": \"0.0.1\""
   ]
  },
  {
-  "rule": "sqlserver",
+  "rule": "evil_package_2",
   "string_information": [
    "0x6:$name: \"name\": \"sqlserver\",",
    "0x1f:$version: \"version\": \"4.0.5\""
+  ]
+ },
+ {
+  "rule": "evil_package_3",
+  "string_information": [
+   "0x1d:$scripts: \"scripts\":",
+   "0x39:$install: \"mkdir -p ~/Desktop/sploit && touch ~/Desktop/sploit/haxx\""
   ]
  }
 ]
