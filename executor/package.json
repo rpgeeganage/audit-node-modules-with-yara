@@ -1,0 +1,32 @@
+{
+  "name": "awy",
+  "description": "Audit Node Modules with YARA rules",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf ./*.js ./*.js.map ./*.d.ts ./*.d.ts.map ./**/*.js ./**/*.js.map ./**/*.d.ts ./**/*.d.ts.map",
+    "prebuild": "yarn clean",
+    "build": "tsc",
+    "lint": "eslint --ext ts .",
+    "lint-fix": "eslint --fix --ext ts .",
+    "fmt": "prettier --write --parser typescript --config .prettierrc '**/*.ts'",
+    "exeute-audit": "yarn && yarn build && node index.js && yarn clean",
+    "test": "yarn && jest --runInBand --config=jest.config.json && yarn clean"
+  },
+  "dependencies": {
+    "debug": "4.3.1"
+  },
+  "devDependencies": {
+    "@types/debug": "4.1.5",
+    "@types/jest": "26.0.20",
+    "@typescript-eslint/eslint-plugin": "4.15.2",
+    "@typescript-eslint/parser": "4.15.2",
+    "eslint": "7.20.0",
+    "eslint-config-prettier": "8.0.0",
+    "eslint-plugin-prettier": "3.3.1",
+    "jest": "26.6.3",
+    "prettier": "2.2.1",
+    "ts-jest": "26.5.3",
+    "typescript": "4.1.5"
+  }
+}

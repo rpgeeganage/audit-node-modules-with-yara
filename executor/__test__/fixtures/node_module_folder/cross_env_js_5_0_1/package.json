@@ -1,0 +1,40 @@
+{
+    "name": "cross-env.js",
+    "version": "5.0.1",
+    "description": "This is a fake app with name cross-env.js",
+    "main": "index.js",
+    "files": [
+        "index.d.ts",
+        "index.js",
+        "lib/"
+    ],
+    "scripts": {
+        "mocha": "mocha test/node",
+        "karma": "karma start",
+        "test": "npm run lint && npm run mocha && npm run karma",
+        "lint": "eslint ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jsdom/cross-env.js.git"
+    },
+    "keywords": [
+        "browser"
+    ],
+    "author": "Jeff Carpenter <cross-env.js-fake@gmail.com>",
+    "license": "BSD-3-Clause",
+    "bugs": {
+        "url": "https://github.com/jsdom/cross-env.js/issues"
+    },
+    "homepage": "https://github.com/jsdom/cross-env.js#readme",
+    "devDependencies": {
+        "eslint": "^4.19.1",
+        "karma": "^2.0.0",
+        "karma-cli": "^1.0.1",
+        "karma-firefox-launcher": "^1.1.0",
+        "karma-mocha": "^1.3.0",
+        "karma-webpack": "^3.0.0",
+        "mocha": "^5.1.0",
+        "webpack": "^4.5.0"
+    }
+}

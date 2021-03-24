@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should run the audit operation 1`] = `
+"[
+ {
+  \\"rule\\": \\"babelcli\\",
+  \\"string_information\\": [
+   \\"0x6:$name: \\\\\\"name\\\\\\": \\\\\\"babelcli\\\\\\",\\",
+   \\"0x1e:$version: \\\\\\"version\\\\\\": \\\\\\"1.0.1\\\\\\"\\"
+  ]
+ },
+ {
+  \\"rule\\": \\"cross_env_js\\",
+  \\"string_information\\": [
+   \\"0x6:$name: \\\\\\"name\\\\\\": \\\\\\"cross-env.js\\\\\\",\\",
+   \\"0x22:$version: \\\\\\"version\\\\\\": \\\\\\"5.0.1\\\\\\"\\"
+  ]
+ }
+]"
+`;
